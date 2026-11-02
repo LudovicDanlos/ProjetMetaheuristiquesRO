@@ -4,7 +4,7 @@ import feasibility
 import constructive
 
 # Ouverture des données de l'instance
-data = instance.read_instance("instance.dat")
+data = instance.read_instance("data/airland1.dat", 2)
 
 # Calcul de la solution selon l'algorithme choisi
 solution = constructive.construire_solution(data["avions"], data["separation"], data["nb_pistes"])
