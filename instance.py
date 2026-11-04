@@ -1,21 +1,17 @@
 import re
 
-avions = {
-    1: {"E": 10, "T": 12, "L": 20},
-    2: {"E": 11, "T": 14, "L": 22},
-    3: {"E": 12, "T": 16, "L": 25},
-}
-
-separation = {
-    (1, 2): 3,
-    (1, 3): 3,
-    (2, 3): 3,
-}
-
 def read_instance(filename) -> dict:
     """Charge une instance 'airland' au format OPL (.dat).
 
-    Si nb_pistes est None, on utilise la valeur m du fichier.
+    Returns :
+        Un dictionnaire contenant 3 couples clés-valeurs :
+            - Clef 'avions' --> sa valeur est un sous-dictionnaire ayant pour clés des chiffres (en string) qui correspondent chacun à un
+            avion particulier. A chaque chiffre est associé un sous-dictionnaire contenant les données de l'avions à prendre en compte.
+            - Clef 'separation' --> sa valeur est un sous-dictionnaire ayant pour clés des couples (type tuple) d'entiers, chaque entier
+            représentant un avion particulier du dictionnaire associé à la clé 'avions'. A chaque couple d'entier est associé un entier
+            pour valeurs. Cet entier est le temps de séparation minimum nécessaire entre les temps d'atterrissages des avions identifiés
+            par chaque entier du couple d'entiers.
+            - Clef 'nb_pistes' --> sa valeur est un entier qui représente le nombre de pistes considéré.
     """
     with open(filename, 'r', encoding='utf-8') as file:
         content = file.read()
@@ -83,6 +79,6 @@ def read_instance(filename) -> dict:
 
 if __name__ == "__main__":
     inst = read_instance("data/airland1.dat")
-    print(inst["nb_pistes"], len(inst["avions"]))
-    print(inst["avions"][1])
-    print(inst["separation"][(1, 2)], inst["separation"][(1, 3)])
+    print(inst["avions"])
+    print(inst["separation"])
+    print(inst["nb_pistes"])
