@@ -12,9 +12,7 @@ separation = {
     (2, 3): 3,
 }
 
-nb_pistes = 2
-
-def read_instance(filename, nb_pistes: int) -> dict:
+def read_instance(filename) -> dict:
     """Charge une instance 'airland' au format OPL (.dat).
 
     Si nb_pistes est None, on utilise la valeur m du fichier.
@@ -79,12 +77,12 @@ def read_instance(filename, nb_pistes: int) -> dict:
     return {
         "avions": avions,
         "separation": separation,
-        "nb_pistes": nb_pistes if nb_pistes is not None else m,
+        "nb_pistes": m,
     }
 
 
 if __name__ == "__main__":
-    inst = read_instance("data/airland1.dat", nb_pistes)
+    inst = read_instance("data/airland1.dat")
     print(inst["nb_pistes"], len(inst["avions"]))
     print(inst["avions"][1])
     print(inst["separation"][(1, 2)], inst["separation"][(1, 3)])
