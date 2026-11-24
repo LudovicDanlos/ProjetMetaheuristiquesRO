@@ -27,4 +27,3 @@ Projet de M2 TNSID dans le cadre du cours de Recherche Opérationnelle. L'object
 > ✅ ❌ ⏳
 
 ### TODO
-- changer cout_p2 pour cout_p1 partout

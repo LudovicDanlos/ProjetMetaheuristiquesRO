@@ -27,7 +27,7 @@ else:
     print("La solution est faisable.")
 
 # Calcul du coût de la solution
-cost = evaluation.cout_p2(heures)
+cost = evaluation.cout_p1(data["avions"], heures)
 print(f"Le coût de la solution est : {cost}")
 
 # Affichage de la solution

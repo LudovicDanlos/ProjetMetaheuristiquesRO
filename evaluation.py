@@ -3,7 +3,7 @@ def cout_p1(avions, heures):
     """
     Calcule le coût total des avances et retards (P1).
 
-    avions : dictionnaire contenant T, g et h pour chaque avion.
+    avions : dictionnaire contenant T, cminus et cplus pour chaque avion.
     heures : dictionnaire contenant l'heure réelle d'atterrissage.
 
     Retourne le coût total.
@@ -12,14 +12,14 @@ def cout_p1(avions, heures):
 
     for i in avions:
         T = avions[i]["T"]
-        g = avions[i]["g"]
-        h = avions[i]["h"]
+        cminus = avions[i]["cminus"]
+        cplus = avions[i]["cplus"]
         x = heures[i]
 
         avance = max(0, T - x)
         retard = max(0, x - T)
 
-        cout += g * avance + h * retard
+        cout += cminus * avance + cplus * retard
 
     return cout
 
